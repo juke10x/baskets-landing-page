@@ -2376,15 +2376,8 @@ footer {
     bubbles.push({ body: body, el: el, r: r });
   }
 
-  var wmLeft = wmRect.left - 100;
-  var wmRight = wmRect.right + 100;
   shuffled.forEach(function(stock, i) {
-    var x;
-    if (Math.random() < 0.5) {
-      x = 22 + Math.random() * Math.max(0, wmLeft - 22);
-    } else {
-      x = wmRight + Math.random() * Math.max(0, W - wmRight - 22);
-    }
+    var x = 22 + Math.random() * (W - 44);
     var y = -20 - Math.random() * H * 0.4;
     spawnBubble(stock, x, y);
   });
