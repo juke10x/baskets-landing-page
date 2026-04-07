@@ -1126,8 +1126,8 @@ footer {
   margin-bottom: 24px;
 }
 #intro-headline em {
-  font-style: italic;
-  color: var(--purple);
+  font-style: normal;
+  color: inherit;
 }
 #intro-sub {
   font-size: clamp(13px, 1.2vw, 15px); font-weight: 400; line-height: 1.75;
@@ -2333,28 +2333,7 @@ footer {
     Bodies.rectangle(W + 40, H / 2, 80, H * 3, wallOpts)
   ]);
 
-  var wmRect = wordmarkEl.getBoundingClientRect();
-  var svgW = wmRect.width;
-  var svgH = wmRect.height;
-  var svgLeft = wmRect.left;
-  var svgTop = wmRect.top;
-  var scl = svgW / 289;
-
   if (!isMobile) {
-    var letterDefs = [
-      [0, 31.7], [41.7, 36.7], [87.9, 31], [132.7, 34.5],
-      [178.9, 27.3], [217.1, 31.4], [257.6, 31]
-    ];
-    var letterOpts = { isStatic: true, restitution: 0.5, friction: 0.1 };
-    letterDefs.forEach(function(ld) {
-      var cx = svgLeft + (ld[0] + ld[1] / 2) * scl;
-      var cy = svgTop + 21.5 * scl;
-      var bw = ld[1] * scl;
-      var bh = 43 * scl;
-      var rect = Bodies.rectangle(cx, cy, bw, bh, letterOpts);
-      Composite.add(engine.world, rect);
-      letterBodies.push(rect);
-    });
   }
 
   function hexToRgba(hex, a) {
