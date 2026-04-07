@@ -1109,60 +1109,34 @@ footer {
   display: flex; flex-direction: column; align-items: center;
   pointer-events: none;
   width: 100%;
-}
-#intro-emblem {
-  position: absolute; top: 52px; left: 50%;
-  transform: translateX(-50%); z-index: 60;
-}
-#intro-emblem svg { width: 48px; height: 48px; display: block; }
-#intro-emblem svg path { fill: var(--text-dark); }
-
-#intro-ticker {
-  position: absolute; top: 148px; left: 0;
-  z-index: 60; width: 100%;
-  overflow: hidden;
-  pointer-events: auto;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%, black 60%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 40%, black 60%, transparent 100%);
-}
-.intro-ticker-track {
-  display: flex; gap: 48px; align-items: flex-start;
-  padding: 0 calc(50vw - 210px);
-  will-change: transform;
-}
-.intro-quote {
-  font-family: var(--serif); font-style: italic;
-  font-size: clamp(18px, 2.2vw, 24px); color: var(--text-dark); opacity: 0.45;
-  flex-shrink: 0; line-height: 1.45;
-  max-width: 420px; white-space: normal;
   text-align: center;
+  max-width: 720px;
+  padding: 0 var(--section-px);
 }
-
-#intro-use {
-  font-family: var(--serif); font-style: italic;
-  font-size: 40px; color: var(--text-dark);
-  margin-bottom: 12px;
+#intro-logo {
+  position: absolute; top: -180px; left: 50%;
+  transform: translateX(-50%); z-index: 60;
+  pointer-events: auto;
 }
-#intro-wordmark { pointer-events: auto; position: relative; overflow: hidden; cursor: pointer; }
-#intro-wordmark svg {
-  width: clamp(200px, 35vw, 560px);
-  height: auto; display: block;
+#intro-headline {
+  font-family: var(--serif);
+  font-size: clamp(56px, 8vw, 110px);
+  font-weight: 400; line-height: 1.04; letter-spacing: -0.03em;
+  color: var(--text-dark);
+  margin-bottom: 24px;
 }
-#intro-wordmark svg path { fill: var(--text-dark); }
-#intro-wordmark::after {
-  content: ''; position: absolute; inset: -20% 0;
-  width: 70%; transform: translateX(-100%) skewX(-15deg);
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.22) 40%, rgba(255,255,255,0.32) 50%, rgba(255,255,255,0.22) 60%, transparent 100%);
-  pointer-events: none;
-  transition: none;
+#intro-headline em {
+  font-style: italic;
+  color: var(--purple);
 }
-#intro-wordmark:hover::after,
-#intro-wordmark.sweep::after {
-  animation: intro-shimmer 1.2s ease-in-out forwards;
+#intro-sub {
+  font-size: clamp(13px, 1.2vw, 15px); font-weight: 400; line-height: 1.75;
+  color: var(--text-dark-secondary); max-width: 520px; margin: 0 auto 36px;
+  pointer-events: auto;
 }
-@keyframes intro-shimmer {
-  0% { transform: translateX(-100%) skewX(-15deg); }
-  100% { transform: translateX(280%) skewX(-15deg); }
+#intro-fine {
+  margin-top: 16px; font-size: 10px; font-weight: 400;
+  color: var(--text-dark-muted); letter-spacing: 0.01em;
 }
 #intro-cta {
   display: inline-flex; align-items: center;
@@ -1319,10 +1293,7 @@ footer {
   /* Intro */
   #intro-emblem { top: 40px; }
   #intro-emblem svg { width: 40px; height: 40px; }
-  #intro-ticker { top: 120px; }
-  .intro-quote { max-width: 340px; }
   #intro-use { font-size: 34px; }
-  #intro-wordmark svg { width: clamp(180px, 55vw, 400px); }
   #intro-cta { padding: 12px 32px; font-size: 14px; margin-top: 24px; }
 
   /* Comparison table */
@@ -1363,10 +1334,7 @@ footer {
 
   #intro-emblem { top: 32px; }
   #intro-emblem svg { width: 36px; height: 36px; }
-  #intro-ticker { top: 100px; }
-  .intro-quote { max-width: 280px; }
   #intro-use { font-size: 30px; }
-  #intro-wordmark svg { width: 70vw; }
   #intro-cta { padding: 11px 28px; font-size: 13px; }
 
   .hero-content { padding: 0 20px; }
@@ -1409,33 +1377,14 @@ footer {
 <!-- ═══════════ INTRO LANDING ═══════════ -->
 <div id="intro">
   <div id="intro-circles"></div>
-  <div id="intro-emblem">
-    <svg viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Baskets emblem">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M23.1987 0C36.011 0 46.3975 10.3864 46.3975 23.1987C46.3974 36.011 36.011 46.3975 23.1987 46.3975C10.3864 46.3975 3.90214e-05 36.011 0 23.1987C0 10.3864 10.3864 0 23.1987 0ZM26.5694 37.191C26.2401 37.3273 26.2401 37.7937 26.5694 37.9301L30.9661 39.7509C31.2953 39.8873 31.2954 40.3537 30.9661 40.4901L28.8322 41.3739C28.7342 41.4145 28.6241 41.4145 28.5261 41.3739L22.651 38.9407C22.553 38.9001 22.4429 38.9001 22.3449 38.9407L15.2063 41.8972C14.8845 42.0304 14.8769 42.4785 15.1989 42.6114C17.6644 43.6285 20.366 44.1898 23.1987 44.1898C24.7752 44.1898 26.311 44.0156 27.7881 43.6861C27.8105 43.6811 27.8323 43.6742 27.8535 43.6654L30.9423 42.3862C30.9474 42.3841 30.9474 42.3768 30.9423 42.3747C30.9372 42.3725 30.9372 42.3653 30.9423 42.3632L34.0937 41.0579C34.1026 41.0542 34.1126 41.0542 34.1215 41.0579C34.1303 41.0616 34.1403 41.0616 34.1492 41.0579L34.3684 40.967C34.3895 40.9583 34.4097 40.9478 34.4289 40.9356C36.2432 39.7845 37.8688 38.3629 39.2489 36.7272C39.4208 36.5235 39.3413 36.2138 39.0951 36.1118L34.2881 34.1209C34.1901 34.0804 34.08 34.0804 33.982 34.1209L26.5694 37.191ZM38.2067 22.7312C37.8774 22.8676 37.8774 23.334 38.2067 23.4703L42.7509 25.3525C43.0802 25.4888 43.0802 25.9552 42.7509 26.0916L40.6169 26.9754C40.5189 27.016 40.4088 27.016 40.3108 26.9754L34.2882 24.481C34.1902 24.4404 34.0801 24.4404 33.9821 24.481L26.5693 27.5512C26.2401 27.6875 26.2401 28.1539 26.5693 28.2903L31.1135 30.1724C31.4428 30.3088 31.4428 30.7751 31.1135 30.9115L28.9797 31.7953C28.8817 31.8359 28.7716 31.8359 28.6736 31.7953L22.651 29.3009C22.553 29.2603 22.4429 29.2603 22.3449 29.3009L14.9322 32.3712C14.603 32.5076 14.603 32.974 14.9322 33.1103L19.4764 34.9923C19.8056 35.1287 19.8056 35.5951 19.4764 35.7314L17.3424 36.6152C17.2444 36.6558 17.1343 36.6558 17.0363 36.6152L11.0137 34.1209C10.9157 34.0804 10.8056 34.0804 10.7076 34.1209L6.94681 35.6783C6.70461 35.7786 6.62271 36.0809 6.78627 36.2858C8.14328 37.9854 9.75865 39.4696 11.5731 40.6787C11.6829 40.7519 11.8221 40.7646 11.9441 40.7141L43.5439 27.626C43.6659 27.5755 43.7553 27.4681 43.7812 27.3387C44.049 26.0002 44.1898 24.6159 44.1898 23.1987C44.1898 22.4041 44.1455 21.6198 44.0595 20.8482C44.0304 20.5876 43.7587 20.4316 43.5164 20.5319L38.2067 22.7312ZM38.2066 32.3712C37.8773 32.5076 37.8774 32.9739 38.2066 33.1103L40.7166 34.1497C40.8974 34.2246 41.1062 34.1579 41.2069 33.9902C41.7281 33.1223 42.1884 32.2137 42.5818 31.2702C42.7159 30.9486 42.3937 30.6368 42.0718 30.7701L38.2066 32.3712ZM26.5693 17.9113C26.2401 18.0477 26.2401 18.5141 26.5693 18.6504L31.1112 20.5316C31.4405 20.668 31.4405 21.1344 31.1112 21.2707L28.9774 22.1546C28.8794 22.1952 28.7693 22.1952 28.6713 22.1546L22.651 19.6611C22.553 19.6205 22.4429 19.6205 22.3449 19.6611L14.9322 22.7312C14.603 22.8676 14.603 23.334 14.9322 23.4704L19.4741 25.3515C19.8034 25.4879 19.8034 25.9543 19.4741 26.0907L17.3401 26.9745C17.2421 27.0151 17.132 27.0151 17.034 26.9745L11.0136 24.481C10.9156 24.4404 10.8055 24.4404 10.7075 24.481L2.87928 27.7232C2.78262 27.7632 2.72863 27.867 2.75235 27.9689C2.76801 28.0362 2.81533 28.0916 2.87916 28.118L7.83687 30.1715C8.16612 30.3078 8.16612 30.7742 7.83687 30.9106L5.7029 31.7944C5.60489 31.835 5.49477 31.835 5.39677 31.7944L4.63555 31.4791C4.30736 31.3432 3.9833 31.6685 4.13225 31.991C4.38512 32.5385 4.66087 33.0732 4.9583 33.594C5.05695 33.7668 5.26911 33.837 5.4529 33.7609L43.2171 18.1196C43.4009 18.0434 43.5012 17.8437 43.4488 17.6517C43.3642 17.3424 43.2728 17.036 43.1746 16.7325C43.1037 16.5134 42.8604 16.4043 42.6476 16.4924L40.6145 17.3346C40.5165 17.3752 40.4064 17.3752 40.3083 17.3347L34.2879 14.8413C34.1899 14.8007 34.0798 14.8007 33.9818 14.8413L26.5693 17.9113ZM26.5693 8.27147C26.2401 8.40785 26.2401 8.87422 26.5693 9.01058L31.1091 10.8907C31.4383 11.0271 31.4383 11.4935 31.1091 11.6299L28.9751 12.5138C28.8771 12.5544 28.767 12.5544 28.6689 12.5138L22.6508 10.0214C22.5528 9.98078 22.4427 9.98078 22.3447 10.0214L14.9321 13.0914C14.6029 13.2278 14.6029 13.6942 14.9321 13.8305L19.4718 15.7106C19.801 15.847 19.801 16.3134 19.4718 16.4498L17.3378 17.3336C17.2398 17.3742 17.1297 17.3742 17.0317 17.3336L11.0136 14.8411C10.9156 14.8005 10.8055 14.8005 10.7075 14.8411L2.94493 18.0562C2.87306 18.0859 2.81949 18.1479 2.80104 18.2235C2.77258 18.3401 2.83407 18.4596 2.94497 18.5056L7.83439 20.5306C8.16364 20.6669 8.16365 21.1333 7.8344 21.2697L5.70058 22.1535C5.60258 22.1941 5.49247 22.1941 5.39446 22.1535L2.82648 21.09C2.58015 20.9879 2.30484 21.1509 2.28247 21.4166C2.23299 22.0041 2.20761 22.5985 2.20761 23.1987C2.20762 23.7653 2.23024 24.3266 2.27438 24.8818C2.29557 25.1484 2.57149 25.3126 2.81853 25.2103L39.0324 10.2112C39.2793 10.1089 39.3583 9.79786 39.185 9.59439C37.7529 7.91317 36.0602 6.46078 34.1695 5.29945C34.0615 5.23307 33.9281 5.22336 33.8109 5.2719L26.5693 8.27147ZM38.2066 13.0914C37.8774 13.2278 37.8774 13.6941 38.2066 13.8305L41.9715 15.3898C42.2955 15.524 42.6184 15.2077 42.4793 14.8857C42.0843 13.9708 41.6259 13.0896 41.1099 12.2475C41.0084 12.0818 40.801 12.0166 40.6214 12.091L38.2066 13.0914ZM23.1987 2.20761C20.4587 2.20761 17.8413 2.73263 15.4416 3.68752C15.1159 3.81712 15.1208 4.26882 15.4446 4.40295L19.4696 6.07001C19.7989 6.20639 19.7988 6.67277 19.4696 6.80913L17.3354 7.69298C17.2374 7.73357 17.1273 7.73356 17.0292 7.69297L12.0335 5.62373C11.9123 5.57349 11.7739 5.58575 11.6643 5.65797C9.86633 6.84269 8.26144 8.29648 6.90669 9.96194C6.74034 10.1664 6.82144 10.4713 7.06498 10.5721L7.83229 10.89C8.16153 11.0263 8.16153 11.4927 7.83229 11.6291L5.66387 12.5272C5.58799 12.5586 5.50274 12.5586 5.42688 12.5272C5.2851 12.4684 5.12146 12.5223 5.04426 12.6549C4.73761 13.1818 4.45321 13.7231 4.19239 14.2778C4.04071 14.6003 4.36505 14.9281 4.69438 14.7917L30.3405 4.16941C30.6697 4.03306 30.6675 3.5722 30.3324 3.45112C28.1054 2.64642 25.7033 2.20761 23.1987 2.20761Z" fill="currentColor"/>
-    </svg>
-  </div>
-  <div id="intro-ticker">
-    <div class="intro-ticker-track">
-      <span class="intro-quote">&ldquo;AI is clearly changing everything &mdash; but which companies actually win from it?&rdquo;</span>
-      <span class="intro-quote">&ldquo;Macro and geopolitics are reshaping markets &mdash; how do I actually position for that?&rdquo;</span>
-      <span class="intro-quote">&ldquo;I&rsquo;ve read enough to know what&rsquo;s happening, I just don&rsquo;t have the tools to act on it.&rdquo;</span>
-      <span class="intro-quote">&ldquo;Everyone has opinions, but where do I find strategies backed by real conviction?&rdquo;</span>
-      <span class="intro-quote">&ldquo;I want exposure to big themes, but picking individual stocks feels like guessing.&rdquo;</span>
-      <span class="intro-quote">&ldquo;AI is clearly changing everything &mdash; but which companies actually win from it?&rdquo;</span>
-      <span class="intro-quote">&ldquo;Macro and geopolitics are reshaping markets &mdash; how do I actually position for that?&rdquo;</span>
-      <span class="intro-quote">&ldquo;I&rsquo;ve read enough to know what&rsquo;s happening, I just don&rsquo;t have the tools to act on it.&rdquo;</span>
-      <span class="intro-quote">&ldquo;Everyone has opinions, but where do I find strategies backed by real conviction?&rdquo;</span>
-      <span class="intro-quote">&ldquo;I want exposure to big themes, but picking individual stocks feels like guessing.&rdquo;</span>
-    </div>
-  </div>
   <div id="intro-content">
-    <span id="intro-use">Use</span>
-    <div id="intro-wordmark">
-      <svg viewBox="0 0 289 43" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="BΛSKETS">
-      <path d="M0.000104711 0.712838H19.1879C20.8908 0.712838 22.4155 0.970258 23.762 1.4851C25.1482 1.99994 26.3165 2.7128 27.2669 3.62367C28.2174 4.53455 28.9303 5.66324 29.4055 7.00975C29.9204 8.31666 30.1778 9.76218 30.1778 11.3463C30.1778 12.9304 29.96 14.2769 29.5243 15.3858C29.1283 16.4551 28.5738 17.3462 27.861 18.0591C27.1877 18.7719 26.3957 19.3066 25.4848 19.663C24.6135 20.0194 23.7026 20.2174 22.7522 20.257V20.6135C23.663 20.6135 24.6333 20.7917 25.663 21.1481C26.7323 21.5045 27.7026 22.0788 28.5738 22.8708C29.4847 23.6233 30.2372 24.6134 30.8312 25.8411C31.4253 27.0292 31.7223 28.5143 31.7223 30.2965C31.7223 31.9598 31.4451 33.5241 30.8906 34.9894C30.3758 36.4152 29.6431 37.6627 28.6927 38.7319C27.7422 39.8012 26.6135 40.6527 25.3066 41.2864C23.9997 41.8804 22.574 42.1774 21.0294 42.1774H0.000104711V0.712838ZM7.84155 35.5241H18.772C20.277 35.5241 21.4453 35.1479 22.2769 34.3954C23.1086 33.6033 23.5244 32.4746 23.5244 31.0093V28.9895C23.5244 27.5242 23.1086 26.3955 22.2769 25.6035C21.4453 24.8114 20.277 24.4154 18.772 24.4154H7.84155V35.5241ZM7.84155 17.9997H17.5245C18.9503 17.9997 20.0591 17.6234 20.8512 16.871C21.6433 16.0789 22.0393 14.9898 22.0393 13.6037V11.7621C22.0393 10.376 21.6433 9.30674 20.8512 8.55428C20.0591 7.76221 18.9503 7.36618 17.5245 7.36618H7.84155V17.9997ZM64.6971 0.712838L78.3602 42.1774H70.1623L63.806 21.9798L60.0041 8.13844H59.8259L56.024 21.9798L49.6677 42.1774H41.7074L55.3705 0.712838H64.6971ZM103.321 42.8903C99.7566 42.8903 96.727 42.2566 94.232 40.9893C91.7766 39.722 89.6578 38.0587 87.8757 35.9993L93.1627 30.8905C94.5884 32.5538 96.1725 33.8211 97.9151 34.6924C99.6972 35.5637 101.658 35.9993 103.796 35.9993C106.212 35.9993 108.034 35.4845 109.261 34.4548C110.489 33.3855 111.103 31.9598 111.103 30.1776C111.103 28.7915 110.707 27.6628 109.915 26.7916C109.123 25.9203 107.638 25.2866 105.46 24.8906L101.539 24.2966C93.2617 22.9897 89.1232 18.9699 89.1232 12.2374C89.1232 10.376 89.4598 8.69289 90.1331 7.18797C90.8459 5.68304 91.8558 4.39594 93.1627 3.32665C94.4696 2.25736 96.0339 1.4455 97.8557 0.89105C99.717 0.297002 101.816 -2.19881e-05 104.153 -2.19881e-05C107.281 -2.19881e-05 110.014 0.514821 112.35 1.54451C114.687 2.57419 116.687 4.09891 118.35 6.11868L113.004 11.1681C111.974 9.90079 110.727 8.8711 109.261 8.07904C107.796 7.28697 105.955 6.89094 103.737 6.89094C101.479 6.89094 99.7764 7.32658 98.6279 8.19785C97.5191 9.02952 96.9646 10.2176 96.9646 11.7621C96.9646 13.3463 97.42 14.5146 98.3309 15.267C99.2418 16.0195 100.707 16.5739 102.727 16.9304L106.588 17.6432C110.786 18.3957 113.875 19.7422 115.855 21.6828C117.875 23.5837 118.885 26.2569 118.885 29.7024C118.885 31.6826 118.529 33.4845 117.816 35.1083C117.142 36.6924 116.133 38.0785 114.786 39.2666C113.479 40.4151 111.855 41.3062 109.915 41.9398C108.014 42.5735 105.816 42.8903 103.321 42.8903ZM146.053 23.4055L140.528 29.94V42.1774H132.686V0.712838H140.528V21.1481H140.825L146.706 13.3661L156.983 0.712838H166.013L151.577 17.9997L167.201 42.1774H157.874L146.053 23.4055ZM178.888 42.1774V0.712838H206.214V7.66321H186.729V17.7026H203.956V24.653H186.729V35.2271H206.214V42.1774H178.888ZM236.725 7.66321V42.1774H228.883V7.66321H217.121V0.712838H248.487V7.66321H236.725ZM273.042 42.8903C269.478 42.8903 266.449 42.2566 263.954 40.9893C261.498 39.722 259.379 38.0587 257.597 35.9993L262.884 30.8905C264.31 32.5538 265.894 33.8211 267.637 34.6924C269.419 35.5637 271.379 35.9993 273.518 35.9993C275.934 35.9993 277.755 35.4845 278.983 34.4548C280.211 33.3855 280.825 31.9598 280.825 30.1776C280.825 28.7915 280.428 27.6628 279.636 26.7916C278.844 25.9203 277.359 25.2866 275.181 24.8906L271.26 24.2966C262.983 22.9897 258.845 18.9699 258.845 12.2374C258.845 10.376 259.181 8.69289 259.855 7.18797C260.567 5.68304 261.577 4.39594 262.884 3.32665C264.191 2.25736 265.755 1.4455 267.577 0.89105C269.439 0.297002 271.538 -2.19881e-05 273.874 -2.19881e-05C277.003 -2.19881e-05 279.735 0.514821 282.072 1.54451C284.409 2.57419 286.409 4.09891 288.072 6.11868L282.725 11.1681C281.696 9.90079 280.448 8.8711 278.983 8.07904C277.518 7.28697 275.676 6.89094 273.458 6.89094C271.201 6.89094 269.498 7.32658 268.349 8.19785C267.241 9.02952 266.686 10.2176 266.686 11.7621C266.686 13.3463 267.142 14.5146 268.052 15.267C268.963 16.0195 270.429 16.5739 272.448 16.9304L276.31 17.6432C280.508 18.3957 283.597 19.7422 285.577 21.6828C287.597 23.5837 288.607 26.2569 288.607 29.7024C288.607 31.6826 288.25 33.4845 287.537 35.1083C286.864 36.6924 285.854 38.0785 284.508 39.2666C283.201 40.4151 281.577 41.3062 279.636 41.9398C277.735 42.5735 275.537 42.8903 273.042 42.8903Z" fill="currentColor"/>
-    </svg>
+    <div id="intro-logo">
+      <img src="assets/b-logo_dark.svg" alt="BASKETS" style="height: 48px; width: auto;">
     </div>
-    <a id="intro-cta">Find Out Why</a>
+    <h1 id="intro-headline"><em>Invest</em><br>Like the Experts.</h1>
+    <p id="intro-sub">Top analysts are quietly beating the market every year. Following their moves used to cost $50,000 minimum. B&#923;SKETS pools your money so you can invest right alongside them, starting at just $100.</p>
+    <a id="intro-cta">Request Access</a>
+    <p id="intro-fine">Batch 1 opening soon &mdash; Invite only early access</p>
   </div>
 </div>
 <div id="intro-spacer"></div>
@@ -2175,11 +2124,11 @@ footer {
   var spacer = document.getElementById('intro-spacer');
   var circlesEl = document.getElementById('intro-circles');
   var contentEl = document.getElementById('intro-content');
-  var wordmarkEl = document.getElementById('intro-wordmark');
   var introCta = document.getElementById('intro-cta');
-  var introEmblem = document.getElementById('intro-emblem');
-  var introTicker = document.getElementById('intro-ticker');
-  var introUseEl = document.getElementById('intro-use');
+  var introHeadline = document.getElementById('intro-headline');
+  var introSub = document.getElementById('intro-sub');
+  var introFine = document.getElementById('intro-fine');
+  var introLogo = document.getElementById('intro-logo');
   var tw = document.getElementById('top-wordmark');
   if (!intro) return;
 
@@ -2242,9 +2191,10 @@ footer {
     if (cleaned) return;
     var p = Math.min(window.scrollY / H, 1);
     var fadeOut = Math.max(0, 1 - p * 5);
-    if (introEmblem) introEmblem.style.opacity = Math.max(0, 1 - p * 5);
-    if (introTicker) introTicker.style.opacity = fadeOut;
-    if (introUseEl) introUseEl.style.opacity = fadeOut;
+    if (introLogo) introLogo.style.opacity = fadeOut;
+    if (introHeadline) introHeadline.style.opacity = fadeOut;
+    if (introSub) introSub.style.opacity = fadeOut;
+    if (introFine) introFine.style.opacity = fadeOut;
     if (introCta) introCta.style.opacity = fadeOut;
     if (matterEngine) matterEngine.gravity.y = Math.max(-1.5, 1 - p * 5);
     if (p > 0.15 && letterBodies.length > 0 && matterEngine) {
@@ -2257,168 +2207,12 @@ footer {
 
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  if (wordmarkEl) {
-    wordmarkEl.addEventListener('click', function(e) {
-      e.stopPropagation();
-      wordmarkEl.classList.remove('sweep');
-      void wordmarkEl.offsetWidth;
-      wordmarkEl.classList.add('sweep');
-    });
-    wordmarkEl.addEventListener('animationend', function() {
-      wordmarkEl.classList.remove('sweep');
-    });
-  }
-
   if (introCta) {
     introCta.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       window.scrollTo({ top: H, behavior: 'smooth' });
     });
-  }
-
-  if (introTicker) {
-    var tickerSpeed = 0.5;
-    var tickerPaused = false;
-    var tickerResumeTimer = null;
-    var tickerTrack = introTicker.querySelector('.intro-ticker-track');
-    var tickerX = 0;
-    var tickerTrackWidth = 0;
-    var tickerHalf = 0;
-    var tickerQuotes = introTicker.querySelectorAll('.intro-quote');
-    var tickerSnapping = false;
-    var numUnique = 5;
-
-    function tickerMeasure() {
-      if (!tickerTrack) return;
-      tickerTrackWidth = tickerTrack.scrollWidth;
-      if (tickerQuotes.length > numUnique) {
-        tickerHalf = tickerQuotes[numUnique].offsetLeft - tickerQuotes[0].offsetLeft;
-      } else {
-        tickerHalf = Math.floor(tickerTrackWidth / 2);
-      }
-    }
-
-    function tickerApply() {
-      tickerTrack.style.transform = 'translateX(' + (-tickerX) + 'px)';
-    }
-
-    function tickerLoop() {
-      if (cleaned) return;
-      if (!tickerPaused && !tickerSnapping && tickerHalf > 0) {
-        tickerX += tickerSpeed;
-        if (tickerX >= tickerHalf) tickerX -= tickerHalf;
-        tickerApply();
-      }
-      requestAnimationFrame(tickerLoop);
-    }
-
-    function tickerSnapToNearest() {
-      var viewCenter = tickerX + introTicker.clientWidth / 2;
-      var best = 0, bestDist = Infinity;
-      for (var i = 0; i < tickerQuotes.length; i++) {
-        var q = tickerQuotes[i];
-        var qCenter = q.offsetLeft + q.offsetWidth / 2;
-        var d = Math.abs(qCenter - viewCenter);
-        if (d < bestDist) { bestDist = d; best = i; }
-      }
-      var target = tickerQuotes[best].offsetLeft + tickerQuotes[best].offsetWidth / 2 - introTicker.clientWidth / 2;
-      target = Math.max(0, Math.min(target, tickerTrackWidth - introTicker.clientWidth));
-      tickerSnapping = true;
-      tickerTrack.style.transition = 'transform 0.35s ease-out';
-      tickerX = target;
-      tickerApply();
-      setTimeout(function() {
-        tickerTrack.style.transition = 'none';
-        tickerSnapping = false;
-      }, 370);
-    }
-
-    function tickerResumeAfterSnap() {
-      if (tickerResumeTimer) clearTimeout(tickerResumeTimer);
-      tickerResumeTimer = setTimeout(function() {
-        tickerPaused = false;
-      }, 1200);
-    }
-
-    var touchStartX = 0, touchStartTickerX = 0;
-
-    introTicker.addEventListener('touchstart', function(e) {
-      tickerPaused = true;
-      tickerTrack.style.transition = 'none';
-      tickerSnapping = false;
-      touchStartX = e.touches[0].clientX;
-      touchStartTickerX = tickerX;
-    }, { passive: true });
-
-    introTicker.addEventListener('touchmove', function(e) {
-      var dx = touchStartX - e.touches[0].clientX;
-      tickerX = Math.max(0, touchStartTickerX + dx);
-      tickerApply();
-    }, { passive: true });
-
-    introTicker.addEventListener('touchend', function() {
-      tickerSnapToNearest();
-      tickerResumeAfterSnap();
-    }, { passive: true });
-
-    var tdrag = { active: false, startX: 0, startTickerX: 0 };
-
-    introTicker.addEventListener('mousedown', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      tdrag.active = true;
-      tdrag.startX = e.pageX;
-      tdrag.startTickerX = tickerX;
-      tickerTrack.style.transition = 'none';
-      tickerSnapping = false;
-      introTicker.style.cursor = 'grabbing';
-      tickerPaused = true;
-    });
-    document.addEventListener('mousemove', function(e) {
-      if (!tdrag.active) return;
-      e.preventDefault();
-      var dx = tdrag.startX - e.pageX;
-      tickerX = Math.max(0, tdrag.startTickerX + dx);
-      tickerApply();
-    });
-    document.addEventListener('mouseup', function() {
-      if (!tdrag.active) return;
-      tdrag.active = false;
-      introTicker.style.cursor = 'grab';
-      tickerSnapToNearest();
-      tickerResumeAfterSnap();
-    });
-
-    introTicker.addEventListener('click', function(e) {
-      e.stopPropagation();
-    });
-
-    introTicker.addEventListener('wheel', function(e) {
-      e.stopPropagation();
-      tickerPaused = true;
-      tickerTrack.style.transition = 'none';
-      tickerSnapping = false;
-      tickerX = Math.max(0, tickerX + e.deltaX);
-      tickerApply();
-      tickerResumeAfterSnap();
-    }, { passive: true });
-
-    introTicker.style.cursor = 'grab';
-    tickerTrack.style.opacity = '0';
-
-    setTimeout(function() {
-      tickerMeasure();
-      if (tickerQuotes.length > 2) {
-        var q = tickerQuotes[2];
-        tickerX = q.offsetLeft + q.offsetWidth / 2 - introTicker.clientWidth / 2;
-        tickerX = Math.max(0, tickerX);
-        tickerApply();
-      }
-      tickerTrack.style.transition = 'opacity 0.4s ease';
-      tickerTrack.style.opacity = '1';
-      requestAnimationFrame(tickerLoop);
-    }, 300);
   }
 
   if (window.scrollY >= H) { cleanup(); return; }
