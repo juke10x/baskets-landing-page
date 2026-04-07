@@ -1114,8 +1114,8 @@ footer {
   padding: 0 var(--section-px);
 }
 #intro-logo {
-  position: absolute; top: -180px; left: 50%;
-  transform: translateX(-50%); z-index: 60;
+  position: fixed; top: clamp(24px, 2.8vw, 36px); left: clamp(24px, 3vw, 48px);
+  z-index: 100;
   pointer-events: auto;
 }
 #intro-headline {
