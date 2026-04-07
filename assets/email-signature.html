@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: white;
+    display: inline-block;
+  }
+  .sig {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 24px 16px 16px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .sig-logo img {
+    height: 44px;
+    width: auto;
+    display: block;
+  }
+  .sig-divider {
+    width: 1px;
+    height: 48px;
+    background: #d4d0ca;
+    flex-shrink: 0;
+  }
+  .sig-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .sig-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1714;
+    letter-spacing: -0.01em;
+  }
+  .sig-title {
+    font-size: 11.5px;
+    font-weight: 400;
+    color: #6b6358;
+  }
+  .sig-contact {
+    margin-top: 4px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .sig-contact a {
+    font-size: 11.5px;
+    font-weight: 400;
+    color: #6b6358;
+    text-decoration: none;
+  }
+  .sig-contact .dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #c8c3bb;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="sig">
+    <div class="sig-logo">
+      <img src="b-logo_dark.svg" alt="BASKETS">
+    </div>
+    <div class="sig-divider"></div>
+    <div class="sig-info">
+      <span class="sig-name">Finn Hansen</span>
+      <span class="sig-title">Founder & CEO</span>
+      <div class="sig-contact">
+        <a href="mailto:finn@basketsapp.com">finn@basketsapp.com</a>
+        <span class="dot"></span>
+        <a href="https://basketsapp.com">basketsapp.com</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
